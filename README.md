@@ -20,3 +20,31 @@ Classe de paginação
 
 # CreateLinks()
 <p>Método que gera os links de paginação</p>
+
+# Com essa classe podemos fazer varios tipos de busca ao banco inclusive fazendo uso de Join's
+
+# Exemplo de Select basico a apenas uma tabela
+
+<p>$pagination->CreatePagination("FROM users");</p>
+<strong>Note:</strong> não é passado o Comando <strong>SELECT *</strong> pois o mesmo esta incluso internamente na classe.
+# Exemplo de uso:
+
+        require './vendor/autoload.php';
+
+        use App\Helpers\Pagination;
+
+        $pagination = new Pagination();
+        try {
+            $listagem = $pagination->CreatePagination("FROM users");
+            $links = $pagination->CreateLinks();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+        /* Aqui em listagem voce pode criar uma tabela em html e extrair os dados nesta tabela */
+        echo "<pre>";
+        var_dump($listagem);
+        echo "<pre>";
+
+        echo $links;
+
+
