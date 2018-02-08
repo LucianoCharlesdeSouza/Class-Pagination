@@ -35,6 +35,10 @@ Classe de paginação
                                  ON v.id_venda = i.id_venda");</p>
 <p><strong>Note:</strong> Que quando precisarmos nomear colunas é <strong>NECESSÁRIO</strong> passarmos a <strong>, (virgula)</strong> logo no começo da intrução SQL</p>. 
 
+# Exemplo de Select onde será necessário passar os valores que serão substituidos pelo método Places
+<p>$pagination->Places(['id' => 1]);</p>
+<p>$pagination->CreatePagination("FROM pedidos WHERE id_pedido = :id");</p>
+
 # Exemplo de uso:
 
         require './vendor/autoload.php';
