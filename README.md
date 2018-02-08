@@ -33,6 +33,8 @@ Classe de paginação
 <p>$pagination->CreatePagination(",v.*,i.* FROM vendas AS v 
                                  INNER JOIN iten_venda AS i 
                                  ON v.id_venda = i.id_venda");</p>
+<p><strong>Note:</strong> Que quando precisarmos nomear colunas é <strong>NECESSÁRIO</strong passarmos a <strong>, (virgula)</strong> logo no começo da intrução SQL</p>. 
+
 # Exemplo de uso:
 
         require './vendor/autoload.php';
