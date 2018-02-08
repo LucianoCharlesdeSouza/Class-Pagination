@@ -26,7 +26,7 @@ Classe de paginação
 # Exemplo de Select basico a apenas uma tabela
 
 <p>$pagination->CreatePagination("FROM users");</p>
-<p><strong>Note:</strong> não é passado o Comando <strong>SELECT *</strong> pois o mesmo esta incluso internamente na classe</p>.
+<p><strong>Note:</strong> não é passado o Comando <strong>SELECT *</strong> pois o mesmo esta incluso internamente na classe.</p>
 
 # Exemplo de Select com JOIN
 
