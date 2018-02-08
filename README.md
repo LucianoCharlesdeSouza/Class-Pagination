@@ -26,7 +26,13 @@ Classe de paginação
 # Exemplo de Select basico a apenas uma tabela
 
 <p>$pagination->CreatePagination("FROM users");</p>
-<strong>Note:</strong> não é passado o Comando <strong>SELECT *</strong> pois o mesmo esta incluso internamente na classe.
+<p><strong>Note:</strong> não é passado o Comando <strong>SELECT *</strong> pois o mesmo esta incluso internamente na classe</p>.
+
+# Exemplo de Select com JOIN
+
+<p>$pagination->CreatePagination(",v.*,i.* FROM vendas AS v 
+                                 INNER JOIN iten_venda AS i 
+                                 ON v.id_venda = i.id_venda");</p>
 # Exemplo de uso:
 
         require './vendor/autoload.php';
