@@ -23,7 +23,7 @@ Classe de paginação
 
 # Com essa classe podemos fazer varios tipos de busca ao banco inclusive fazendo uso de Join's
 
-# Exemplo de Select basico a apenas uma tabela
+# Exemplo de Select básico para apenas uma tabela
 
 <p>$pagination->CreatePagination("FROM users");</p>
 <p><strong>Note:</strong> não é passado o Comando <strong>SELECT *</strong> pois o mesmo esta incluso internamente na classe.</p>
@@ -33,7 +33,7 @@ Classe de paginação
 <p>$pagination->CreatePagination(",v.*,i.* FROM vendas AS v 
                                  INNER JOIN iten_venda AS i 
                                  ON v.id_venda = i.id_venda");</p>
-<p><strong>Note:</strong> Que quando precisarmos nomear colunas é <strong>NECESSÁRIO</strong> passarmos a <strong>, (virgula)</strong> logo no começo da intrução SQL</p>. 
+<p><strong>Note:</strong> Que quando precisarmos nomear colunas é <strong>NECESSÁRIO</strong> passarmos a <strong>,(virgula)</strong> logo no começo da intrução SQL.</p> 
 
 # Exemplo de Select onde será necessário passar os valores que serão substituidos pelo método Places
 <p>$pagination->Places(['id' => 1]);</p>
