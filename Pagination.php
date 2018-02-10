@@ -172,10 +172,7 @@ class Pagination extends Model
         $this->query_count = str_replace($this->query, "SELECT COUNT(*) AS Total FROM ".$new_query[1], $this->query);
         $this->query_count = substr($this->query_count, 0, strpos($this->query_count, "LIMIT"));
 
-        if (strrpos($this->query_count, "WHERE")) {
-            return $this->FullQuery($this->query_count, $this->places)[0]['Total'];
-        }
-        return $this->FullQuery($this->query_count)[0]['Total'];
+        return $this->FullQuery($this->query_count, $this->places)[0]['Total'];
     }
 
     /**
