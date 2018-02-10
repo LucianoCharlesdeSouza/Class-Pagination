@@ -19,8 +19,8 @@ class Pagination extends Model
             $max_page = 2,
             $max_links = 2,
             $places = [],
-            $page = "page",
-            $query = "SELECT * ",
+            $page = 'page',
+            $query = '',
             $query_count = null;
 
     /**
@@ -168,7 +168,8 @@ class Pagination extends Model
      */
     private function totalRecords()
     {
-        $this->query_count = str_replace("SELECT *", "SELECT COUNT(*) AS Total", $this->query);
+        $new_query = explode('FROM', $this->query);
+        $this->query_count = str_replace($this->query, "SELECT COUNT(*) AS Total FROM ".$new_query[1], $this->query);
         $this->query_count = substr($this->query_count, 0, strpos($this->query_count, "LIMIT"));
 
         if (strrpos($this->query_count, "WHERE")) {
@@ -263,7 +264,6 @@ class Pagination extends Model
         if (isset($https) && $https == 'on') {
             $url = "https://" . $URL . filter_input(INPUT_SERVER, 'REQUEST_URI');
         }
-
         return substr($url, 0, strpos($url, "?" . $name_Pager));
     }
 
