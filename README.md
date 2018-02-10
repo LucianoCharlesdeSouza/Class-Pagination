@@ -25,19 +25,17 @@ Classe de paginação
 
 # Exemplo de Select básico para apenas uma tabela
 
-<p>$pagination->CreatePagination("FROM users");</p>
-<p><strong>Note:</strong> não é passado o Comando <strong>SELECT *</strong> pois o mesmo esta incluso internamente na classe.</p>
+<p>$pagination->CreatePagination("SELECT * FROM users");</p>
 
 # Exemplo de Select com JOIN
 
-<p>$pagination->CreatePagination(",v.*,i.* FROM vendas AS v 
+<p>$pagination->CreatePagination("SELECT v.*,i.* FROM vendas AS v 
                                  INNER JOIN iten_venda AS i 
                                  ON v.id_venda = i.id_venda");</p>
-<p><strong>Note:</strong> Que quando precisarmos nomear colunas é <strong>NECESSÁRIO</strong> passarmos a <strong>,(virgula)</strong> logo no começo da intrução SQL.</p> 
 
 # Exemplo de Select onde será necessário passar os valores que serão substituidos pelo método Places
 <p>$pagination->Places(['id' => 1]);</p>
-<p>$pagination->CreatePagination("FROM pedidos WHERE id_pedido = :id");</p>
+<p>$pagination->CreatePagination("SELECT * FROM pedidos WHERE id_pedido = :id");</p>
 
 # Exemplo de uso:
 
@@ -47,7 +45,7 @@ Classe de paginação
 
         $pagination = new Pagination();
         try {
-            $listagem = $pagination->CreatePagination("FROM users");
+            $listagem = $pagination->CreatePagination("SELECT * FROM users");
             $links = $pagination->CreateLinks();
         } catch (Exception $e) {
             die($e->getMessage());
