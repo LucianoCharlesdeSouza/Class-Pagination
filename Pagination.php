@@ -201,7 +201,7 @@ class Pagination extends Model
     private function firstLink()
     {
         $this->links .= "<div class=\"col-sm-12 text-center\"><ul class=\"pagination\">";
-        $first = "<li><a class=\"\active\" href = \"?" . $this->page . "=1\">&laquo;</a></li>";
+        $first = "<li><a class=\"active\" href = \"?" . $this->page . "=1\">&laquo;</a></li>";
         $this->links .= $first;
     }
 
