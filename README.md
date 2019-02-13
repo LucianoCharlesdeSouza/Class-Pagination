@@ -25,20 +25,27 @@ Classe de paginação
 
 # Exemplo de Select básico para apenas uma tabela
 
-<p>$pagination->CreatePagination("SELECT * FROM users");</p>
+```php
+$pagination->CreatePagination("SELECT * FROM users");
+```
 
 # Exemplo de Select com JOIN
 
-<p>$pagination->CreatePagination("SELECT v.*,i.* FROM vendas AS v 
+```php
+$pagination->CreatePagination("SELECT v.*,i.* FROM vendas AS v 
                                  INNER JOIN iten_venda AS i 
-                                 ON v.id_venda = i.id_venda");</p>
+                                 ON v.id_venda = i.id_venda");
+```                                 
 
 # Exemplo de Select onde será necessário passar os valores que serão substituidos pelo método Places
-<p>$pagination->Places(['id' => 1]);</p>
-<p>$pagination->CreatePagination("SELECT * FROM pedidos WHERE id_pedido = :id");</p>
+```php
+$pagination->Places(['id' => 1]);
+$pagination->CreatePagination("SELECT * FROM pedidos WHERE id_pedido = :id");
+```
 
 # Exemplo de uso:
 
+```php
         require './vendor/autoload.php';
 
         use App\Helpers\Pagination;
@@ -56,5 +63,5 @@ Classe de paginação
         echo "<pre>";
 
         echo $links;
-
+```
 
