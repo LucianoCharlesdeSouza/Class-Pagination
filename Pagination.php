@@ -168,11 +168,10 @@ class Pagination extends Model
      */
     private function totalRecords()
     {
-        $new_query = explode('from', strtolower($this->query));
-        $this->query_count = str_replace($this->query, "select count(*) as total from ".$new_query[1], $this->query);
-        $this->query_count = substr($this->query_count, 0, strpos($this->query_count, "limit"));
-
-        return $this->FullQuery($this->query_count, $this->places)[0]['total'];
+        $sql = str_replace(" LIMIT " . $this->index_page . "," . $this->max_page, '', $this->query);
+        $total = ($this->FullQuery($sql, $this->places)) ? count($this->FullQuery($sql, $this->places)) : 0;
+        $this->FullQuery($this->query, $this->places);
+        return $total;
     }
 
     /**
